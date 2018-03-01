@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies</title>
+</head>
+
+<body>
+
+    <script>
+        window.addEventListener("storage", function (event) {
+            console.log("Eintrag " + event.key + " geändert von " + event.oldValue +
+                " in " + event.newValue);
+        });
+
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                console.log(localStorage.getItem("Zucker"));
+                localStorage.setItem("Zucker", "2kg");
+
+                console.log(sessionStorage.getItem("Milch"));
+                sessionStorage.setItem("Milch", "1l");
+            }, 3000);
+        });
+    </script>
+
+
+</body>
+
+</html>
