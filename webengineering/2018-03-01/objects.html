@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+</head>
+<body>
+
+<form name="katze">
+    <label for="name">Name: </label>
+    <input id="name" name="name" value=""><br/>
+    <label for="rasse">Rasse: </label>
+    <input id="rasse" name="rasse" value=""><br/>
+    <label for="vati">Vati: </label>
+    <input id="vati" name="vati" value=""><br/>
+    <label for="mutti">Mutti: </label>
+    <input id="mutti" name="mutti" value=""><br/>
+    <label for="gewicht">Gewicht: </label>
+    <input id="gewicht" name="gewicht" value=""><br/>
+</form>
+
+<script>
+
+    var katze = {
+        name: "Horst",
+        rasse: "Volledel",
+        mutti: "Elfride",
+        vati: "Egon",
+        gewicht: 0.7,
+        sagHallo: function () {
+            console.log("Hallo, ich heisse " + this.name +
+            " und bin eine " + this.rasse + " Katze! " +
+            "Mein Vater heisst " + this.vati + " und meine Mutti heisst " +
+            this.mutti + ".");
+        },
+        update: function (event) {
+            this[event.target.name] = event.target.value;
+            this.sagHallo();
+        }
+    };
+
+    function init() {
+        katze.sagHallo();
+        fuelleFormular();
+
+        var felder = document.getElementsByTagName("input");
+        for ( var i = 0; i < felder.length; i++) {
+            felder[i].addEventListener("blur", katze.update.bind(katze));
+        }
+
+        setTimeout(function(){
+            katze.sagHallo();
+        }, 3000);
+
+    }
+
+    window.addEventListener("load", init);
+
+    function fuelleFormular() {
+        var felder = document.getElementsByTagName("input");
+        for ( var i = 0; i < felder.length; i++) {
+            felder[i].value = katze[felder[i].name];
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
