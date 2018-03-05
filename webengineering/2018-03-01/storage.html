@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Storage</title>
+    <script type="text/javascript">
+        var count = 0;
+        var storageHandler = function () {
+            alert('storage event 1');
+        };
+        window.addEventListener("storage", storageHandler, false);
+    </script>
+</head>
+
+<body>
+    In Page 1
+    <button id="addBtn" onclick="localStorage.setItem('key1',count++)">Add</button>
+    <button id="clearBtn" onclick="localStorage.clear()">Clear</button>
+</body>
+
+</html>
