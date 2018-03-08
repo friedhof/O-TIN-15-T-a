@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video</title>
+</head>
+<body>
+
+<video id="bear" width="320" height="240">
+    <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+    <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
+</video>
+
+<br />
+
+<button id="btnPause">Pause</button>
+<button id="btnPlay">Play</button>
+
+<script>
+    function init() {
+        var video = document.getElementById("bear");
+        var btnPause = document.getElementById("btnPause");
+        var btnPlay = document.getElementById("btnPlay");
+        btnPause.addEventListener("click", function() {
+            video.pause();
+        });
+        btnPlay.addEventListener("click", function() {
+            video.play();
+        });
+    }
+
+    window.addEventListener("load", init);
+</script>
+
+</body>
+</html>
