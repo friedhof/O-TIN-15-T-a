@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+
+<body>
+
+    <canvas id="diagram" width="410" height="300" style="border: 1px solid black">
+    </canvas>
+
+    <script>
+        function drawDiagram() {
+            var canvas = document.getElementById("diagram");
+            var ctx = canvas.getContext("2d");
+
+            ctx.moveTo(20, 251);
+            ctx.lineTo(390, 251);
+            ctx.stroke();
+
+            ctx.font = "16px Arial";
+            ctx.fillText("30 %", 47, 270);
+            ctx.fillText("50 %", 117, 270);
+            ctx.fillText("20 %", 187, 270);
+            ctx.fillText("70 %", 257, 270);
+            ctx.fillText("25 %", 327, 270);
+
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(40, 160, 50, 90);
+
+            ctx.fillStyle = "#00FF00";
+            ctx.fillRect(110, 100, 50, 150);
+
+            ctx.fillStyle = "#0000FF";
+            ctx.fillRect(180, 190, 50, 60);
+
+            ctx.fillStyle = "#FFFF00";
+            ctx.fillRect(250, 40, 50, 210);
+
+            ctx.fillStyle = "#00FFFF";
+            ctx.fillRect(320, 175, 50, 75);
+        }
+
+        window.addEventListener("load", drawDiagram);
+    </script>
+
+</body>
+
+</html>
